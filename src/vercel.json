@@ -1,8 +1,27 @@
 {
-    "rewrites": [
+  "rewrites": [
+    {
+      "source": "/:match*",
+      "destination": "https://api.openai.com/:match*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:match*",
+      "headers": [
         {
-            "source": "/:match*",
-            "destination": "https://api.openai.com/:match*"
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
         }
-    ]
+      ]
+    }
+  ]
 }
