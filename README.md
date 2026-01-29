@@ -8,14 +8,28 @@
 
 ## 使用方法
 
-- 访问 openai api 时，将 "api.openai.com" 换成你的自定义域名，例如
+本项目支持两个代理（按请求域名区分）：
+
+| 自定义域名示例 | 转发目标 |
+|----------------|----------|
+| openapi.itlol.cn | https://api.openai.com |
+| braveapi.itlol.cn | https://api.search.brave.com |
+
+- **OpenAI API**：将 "api.openai.com" 换成你的自定义域名，例如
 
     ```javascript
-    const host = 'YOUR DOMAIN'
+    const host = 'openapi.itlol.cn'  // 或你的 OpenAI 代理域名
     const url = `https://${host}/v1/chat/completions`
     ```
 
-- 在其他 chatgpt 项目中，可以将变量 "OPENAI_API_BASE_URL" 设置为你的域名
+- **Brave Search API**：将 "api.search.brave.com" 换成你的 Brave 代理域名，例如
+
+    ```javascript
+    const host = 'braveapi.itlol.cn'  // 或你的 Brave 代理域名
+    const url = `https://${host}/res/v1/web/search`
+    ```
+
+- 在其他 chatgpt 项目中，可以将变量 "OPENAI_API_BASE_URL" 设置为你的 OpenAI 代理域名
 
 ## 要求
 
@@ -34,7 +48,7 @@
 ![Vercel create](doc/2023-04-11-21-42-47.png)
 4. 接着等十几秒钟就创建好项目了，接下来进入仪表盘
 ![Vercel dashboard](doc/2023-04-11-21-42-57.png)
-5. 进入到项目里之后，依次点击 Settings -> Domains，然后添加你的域名。添加的域名类型有两种，一种是一级域名(xxxx.com)和二级域名(openai.xxxx.com)，我个人推荐使用二级域名，因为一级域名一般用来做网站展示用，只能有一个，而二级域名可以有无限个（只要你有一个域名就可以自己创建无限个二级域名）
+5. 进入到项目里之后，依次点击 Settings -> Domains，然后添加你的域名。若需同时使用 OpenAI 与 Brave 代理，请为两个代理分别添加域名（例如 openapi.itlol.cn、braveapi.itlol.cn）。添加的域名类型有两种，一种是一级域名(xxxx.com)和二级域名(openai.xxxx.com)，我个人推荐使用二级域名，因为一级域名一般用来做网站展示用，只能有一个，而二级域名可以有无限个（只要你有一个域名就可以自己创建无限个二级域名）
 ![Vercel domains](doc/2023-04-11-21-45-47.png)
 6. 添加域名有三种方式，这里我们选第三种，因为简单
 ![Add Domain](doc/2023-04-11-21-47-17.png)

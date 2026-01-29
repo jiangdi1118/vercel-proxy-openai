@@ -22,6 +22,28 @@
   "rewrites": [
     {
       "source": "/:match*",
+      "destination": "https://api.search.brave.com/:match*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "braveapi.itlol.cn"
+        }
+      ]
+    },
+    {
+      "source": "/:match*",
+      "destination": "https://api.openai.com/:match*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "openapi.itlol.cn"
+        }
+      ]
+    },
+    {
+      "source": "/:match*",
       "destination": "https://api.openai.com/:match*"
     }
   ]

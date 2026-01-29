@@ -12,6 +12,9 @@ module.exports = (req, res) => {
     if (req.url.startsWith('/openai')) {
         target = 'https://api.openai.com'
     }
+    if (req.url.startsWith('/brave')) {
+        target = 'https://api.search.brave.com'
+    }
     // 创建代理对象并转发请求
     createProxyMiddleware({
         target,
@@ -19,7 +22,8 @@ module.exports = (req, res) => {
         pathRewrite: {
             // 通过路径重写，去除请求路径中的 `/backend`
             // 例如 /backend/user/login 将被转发到 http://backend-api.com/user/login
-            '^/openai/': '/'
+            '^/openai/': '/',
+            '^/brave/': '/'
         }
     })(req, res)
 }
