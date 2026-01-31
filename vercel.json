@@ -44,6 +44,17 @@
     },
     {
       "source": "/:match*",
+      "destination": "https://www.okx.com/:match*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "okxapi.itlol.cn"
+        }
+      ]
+    },
+    {
+      "source": "/:match*",
       "destination": "https://api.openai.com/:match*"
     }
   ]
