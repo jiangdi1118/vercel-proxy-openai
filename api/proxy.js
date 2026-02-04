@@ -18,6 +18,9 @@ module.exports = (req, res) => {
     if (req.url.startsWith('/okx')) {
         target = 'https://www.okx.com'
     }
+    if (req.url.startsWith('/anthropic')) {
+        target = 'https://api.anthropic.com'
+    }
     // 创建代理对象并转发请求
     createProxyMiddleware({
         target,
@@ -27,7 +30,8 @@ module.exports = (req, res) => {
             // 例如 /backend/user/login 将被转发到 http://backend-api.com/user/login
             '^/openai/': '/',
             '^/brave/': '/',
-            '^/okx/': '/'
+            '^/okx/': '/',
+            '^/anthropic/': '/'
         }
     })(req, res)
 }

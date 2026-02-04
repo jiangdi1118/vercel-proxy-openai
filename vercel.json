@@ -14,12 +14,23 @@
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type,Authorization"
+          "value": "Content-Type,Authorization,X-API-Key,Anthropic-Version,Anthropic-Beta"
         }
       ]
     }
   ],
   "rewrites": [
+    {
+      "source": "/:match*",
+      "destination": "https://api.anthropic.com/:match*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "anthropicapi.itlol.cn"
+        }
+      ]
+    },
     {
       "source": "/:match*",
       "destination": "https://api.search.brave.com/:match*",

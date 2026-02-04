@@ -14,6 +14,7 @@
 |----------------|----------|
 | openapi.itlol.cn | https://api.openai.com |
 | braveapi.itlol.cn | https://api.search.brave.com |
+| anthropicapi.itlol.cn | https://api.anthropic.com |
 
 - **OpenAI API**：将 "api.openai.com" 换成你的自定义域名，例如
 
@@ -27,6 +28,13 @@
     ```javascript
     const host = 'braveapi.itlol.cn'  // 或你的 Brave 代理域名
     const url = `https://${host}/res/v1/web/search`
+    ```
+
+- **Anthropic API**：将 "api.anthropic.com" 换成你的 Anthropic 代理域名，例如
+
+    ```javascript
+    const host = 'anthropicapi.itlol.cn'  // 或你的 Anthropic 代理域名
+    const url = `https://${host}/v1/messages`
     ```
 
 - 在其他 chatgpt 项目中，可以将变量 "OPENAI_API_BASE_URL" 设置为你的 OpenAI 代理域名
