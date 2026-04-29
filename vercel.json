@@ -66,6 +66,17 @@
     },
     {
       "source": "/:match*",
+      "destination": "https://api.coin.z.com/:match*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "gmoapi.itlol.cn"
+        }
+      ]
+    },
+    {
+      "source": "/:match*",
       "destination": "https://api.openai.com/:match*"
     }
   ]
